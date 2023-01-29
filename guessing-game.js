@@ -13,7 +13,18 @@ function randomInRange(min, max) {
 }
 
 
-let secretNumber = randomInRange(0, 100);
+let secretNumber;
+
+
+let askRange = () => {
+    rl.question("Enter a max number: ", max => {
+        rl.question("Enter a min number: ", min => {
+            console.log("I'm thinking of a number between " + min + " and " + max + "...");
+            secretNumber = randomInRange(Number(min), Number(max));
+            askGuess();
+        });
+    });
+}
 
 function checkGuess(n) {
     if (n > secretNumber) {
@@ -39,8 +50,9 @@ let askGuess = () => {
     });
 }
 
+askRange();
 
-askGuess();
+// askGuess();
 
 // console.log(randomInRange(15, 20)); // 16
 // console.log(randomInRange(15, 20)); // 17
