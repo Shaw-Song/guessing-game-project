@@ -6,7 +6,14 @@ const rl = readline.createInterface({
 });
 
 
-let secretNumber = 4;
+
+
+function randomInRange(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+}
+
+
+let secretNumber = randomInRange(0, 100);
 
 function checkGuess(n) {
     if (n > secretNumber) {
@@ -35,7 +42,9 @@ let askGuess = () => {
 
 askGuess();
 
-
+// console.log(randomInRange(15, 20)); // 16
+// console.log(randomInRange(15, 20)); // 17
+// console.log(randomInRange(15, 20)); // 20
 
 // console.log(checkGuess(1));
 // console.log(checkGuess(5));
